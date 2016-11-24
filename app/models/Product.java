@@ -16,12 +16,12 @@ public class Product extends Model {
     @Id
     private Long id;
 
+    @ManyToOne
+    private Category category;
+
     // Other fields marked as being required (for validation purposes)
     @Constraints.Required
     private String name;
-
-    @Constraints.Required
-    private String category;
 
     @Constraints.Required
     private String description;
@@ -59,6 +59,7 @@ public class Product extends Model {
     }
 
     public void setId(Long id) {
+
         this.id = id;
     }
 
@@ -69,6 +70,7 @@ public class Product extends Model {
     public void setName(String name) {
         this.name = name;
     }
+
     public String getDescription() {
         return description;
     }
@@ -93,11 +95,11 @@ public class Product extends Model {
         this.price = price;
     }
 
-    public String getCategory() {
-        return category;
+    public Category getCategory() {
+        return this.category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 }
